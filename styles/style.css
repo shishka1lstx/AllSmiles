@@ -1,0 +1,331 @@
+/**
+  Нормализация блочной модели
+ */
+ *,
+ *::before,
+ *::after {
+   box-sizing: border-box;
+ }
+ 
+ /**
+   Убираем внутренние отступы слева тегам списков,
+   у которых есть атрибут class
+  */
+ :where(ul, ol):where([class]) {
+   padding-left: 0;
+ }
+ 
+ /**
+   Убираем внешние отступы body и двум другим тегам,
+   у которых есть атрибут class
+  */
+ body,
+ :where(blockquote, figure):where([class]) {
+   margin: 0;
+ }
+ 
+ /**
+   Убираем внешние отступы вертикали нужным тегам,
+   у которых есть атрибут class
+  */
+ :where(
+   h1,
+   h2,
+   h3,
+   h4,
+   h5,
+   h6,
+   p,
+   ul,
+   ol,
+   dl
+ ):where([class]) {
+   margin-block: 0;
+ }
+ 
+ :where(dd[class]) {
+   margin-left: 0;
+ }
+ 
+ :where(fieldset[class]) {
+   margin-left: 0;
+   padding: 0;
+   border: none;
+ }
+ 
+ /**
+   Убираем стандартный маркер маркированному списку,
+   у которого есть атрибут class
+  */
+ :where(ul[class]) {
+   list-style: none;
+ }
+ 
+ :where(address[class]) {
+   font-style: normal;
+ }
+ 
+ /**
+   Обнуляем вертикальные внешние отступы параграфа,
+   объявляем локальную переменную для внешнего отступа вниз,
+   чтобы избежать взаимодействие с более сложным селектором
+  */
+ p {
+   --paragraphMarginBottom: 24px;
+ 
+   margin-block: 0;
+ }
+ 
+ /**
+   Внешний отступ вниз для параграфа без атрибута class,
+   который расположен не последним среди своих соседних элементов
+  */
+ p:where(:not([class]):not(:last-child)) {
+   margin-bottom: var(--paragraphMarginBottom);
+ }
+ 
+ 
+ /**
+   Упрощаем работу с изображениями
+  */
+ img {
+   display: block;
+   max-width: 100%;
+ }
+ 
+ /**
+   Наследуем свойства шрифт для полей ввода
+  */
+ input,
+ textarea,
+ select,
+ button {
+   font: inherit;
+ }
+ 
+ html {
+   /**
+     Пригодится в большинстве ситуаций
+     (когда, например, нужно будет "прижать" футер к низу сайта)
+    */
+   height: 100%;
+ }
+ 
+ /**
+   Плавный скролл
+  */
+ html,
+ :has(:target) {
+   scroll-behavior: smooth;
+ }
+ 
+ body {
+   /**
+     Пригодится в большинстве ситуаций
+     (когда, например, нужно будет "прижать" футер к низу сайта)
+    */
+   min-height: 100%;
+   /**
+     Унифицированный интерлиньяж
+    */
+   line-height: 1.5;
+ }
+ 
+ /**
+   Приводим к единому цвету svg-элементы
+  */
+ svg *[fill] { fill: currentColor }
+ svg *[stroke] { stroke: currentColor }
+ 
+ /**
+   Чиним баг задержки смены цвета при взаимодействии с svg-элементами
+  */
+ svg * {
+   transition-property: fill, stroke;
+ }
+ 
+ /**
+   Удаляем все анимации и переходы для людей,
+   которые предпочитают их не использовать
+  */
+ @media (prefers-reduced-motion: reduce) {
+   * {
+     animation-duration: 0.01ms !important;
+     animation-iteration-count: 1 !important;
+     transition-duration: 0.01ms !important;
+     scroll-behavior: auto !important;
+   }
+ }
+
+
+ @font-face{
+    font-family: 'Open Sans';
+    src: url('../fonts/OpenSans-SemiBold.woff2') format('woff2');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+ }
+
+ 
+ @font-face{
+    font-family: 'Catamaran';
+    src: url('../fonts/Catamaran-SemiBold.woff2') format('woff2');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+ }
+
+ @font-face{
+    font-family: 'Open Sans';
+    src: url('../fonts/OpenSans-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+ }
+
+
+ :root{
+    --color-background-blue: #2E3192;
+    --color-text-blue: #1E2D78;
+     
+    --font-family-text: 'Open Sans';
+    --font-family-h1: 'Catamaran';
+    
+
+ }
+body{
+    margin: 0;
+}
+.header{
+    width: 100%;
+}
+
+.header-part1{
+    display: flex;
+    column-gap: calc(100% - 130px - 730px - 140px);
+    width: 100%;
+    background-color: var(--color-background-blue);
+    padding-inline: 4%;
+    height: 40px;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.header-part1-info{
+    display: flex;
+    column-gap: 24px;
+    align-items: center;
+}
+
+.header-part1-info-item{
+    display: flex;
+    column-gap: 15px;
+    align-items: center;
+}
+
+.dot{
+    height: 5px;
+    width: 5px;
+    border-radius: 50%;
+    background-color: aliceblue;
+}
+
+.header-part1-text{
+    color:aliceblue;
+    font-family: var(--font-family-text);
+    font-size: 13px;
+    font-weight: 400;
+    text-wrap: nowrap;
+    line-height: 22px;
+    letter-spacing: 0.5px;
+}
+
+.header-part2{
+  display: flex;
+  column-gap: 1vw;
+  height: 100px;
+  align-items: center;
+  justify-content: space-between;
+  padding-inline: 40px;
+}
+
+.logo{
+  width: 135px;
+  height: 17px;
+}
+
+.header-menu-list{
+  column-gap: 70px;
+  display: flex;
+}
+.header-menu-item{
+  display: grid;
+}
+
+.header-menu-link{
+    color:var(--color-text-blue);
+    position: relative;
+    font-family: var(--font-family-text);
+    font-size: 13px;
+    font-weight: 400;
+    text-wrap: nowrap;
+    line-height: 22px;
+    letter-spacing: 2.6px;
+    text-decoration: none;
+    line-height: 10px;
+    text-transform: uppercase;
+    display: inline-flex;
+    height: 100px;
+    align-items: center;
+}
+
+.header-menu-link::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #F4572E;
+  transform-origin: center;
+  transition: transform 0.2s ease-out;
+}
+
+.header-menu-link:hover::before{
+  transform: scaleX(1);
+  transform-origin: center;
+}
+
+.header-actions{
+  text-wrap: nowrap;
+  display: flex;
+  column-gap: 25px;
+  align-items: center;
+}
+
+.header-burger-button{
+  display: inline-flex;
+  flex-direction: column;
+  row-gap: 4px;
+  height: 50px;
+  width: 50px;
+  border-radius: 4px;
+  color: var(--color-text-blue);
+  border: none;
+  align-items: center;
+  justify-content: center;
+  
+}
+
+.burger-line{
+  height: 1px;
+  width: 21px;
+  background-color: currentColor;
+  transition: 0.2s;
+}
+
+.header-burger-button:hover{
+  color: #F4572E;
+}

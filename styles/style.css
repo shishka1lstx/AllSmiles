@@ -329,3 +329,144 @@ body{
 .header-burger-button:hover{
   color: #F4572E;
 }
+.slider{
+  max-width: 1920px;
+  height: 650px;
+  position: relative;
+  margin-inline: auto;
+}
+
+.slider-button-prev{
+  font-family: 'Open Sans';
+  display: flex;
+  color: var(--color-text-blue);
+  cursor: pointer;
+  position: absolute;
+  top: 300px;
+  width: 55px;
+  height: 55px;
+  left: 23px;
+  font-weight: normal;
+  padding: 16px;
+  font-size: 24px;
+  transition: 0.2s ease;
+  border: none;
+  background-color: white;
+  transition: 0.2s;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+}
+
+.slider-button-next{
+  display: flex;
+  color: var(--color-text-blue);
+  cursor: pointer;
+  position: absolute;
+  top: 300px;
+  width: 55px;
+  height: 55px;
+  right: 23px;
+  font-weight: normal;
+  padding: 16px;
+  font-size: 24px;
+  transition: 0.2s ease;
+  border: none;
+  background-color: white;
+  transition: 0.2s;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+}
+
+.slider-button-prev:hover, .slider-button-next:hover{
+  color:#F4572E
+}
+
+
+.slider-item{
+  position: relative;
+}
+
+.slider-point{
+  display: flex;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  column-gap: 10px;
+  top:-30px;
+  left:auto;
+}
+
+.slider-dot{
+  cursor: pointer;
+  height: 11px;
+  width: 11px;
+  margin-inline: 2px;
+  background-color: var(--color-background-blue);
+  border-radius: 50%;
+  display: inline-block;
+  transition: 0.2s;
+}
+
+.active, .slider-dot:hover{
+  background-color: #F4572E;
+  width: 10px;
+  height: 10px;
+}
+
+.silder-contnent{
+  position: absolute;
+  display: grid;
+  top: 200px;
+  left: 307px;
+  row-gap: 13px;
+}
+
+.slider-theme{
+  background-color: #F4572E;
+  color:aliceblue;
+  font-family: 'Open Sans';
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  border-radius: 5px;
+  line-height: 22px;
+  width: 168px;
+  align-items: center;
+  justify-content: center;
+  padding-inline: 8px;
+}
+
+.slider-text{
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff;
+  color:var(--color-text-blue);
+  font-family: 'Catamaran';
+  font-size: 65px;
+  font-weight: 600;
+  
+  border-radius: 5px;
+  line-height: 77px;
+}
+
+.slider-btn{
+  width: 187px;
+  height: 56px;
+  background-color: var(--color-background-blue);
+  color: aliceblue;
+  border-radius: 5px;
+  font-family: 'Open Sans';
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  border: none;
+  transition: 0.3s;
+}
+
+.slider-btn:hover{
+  background-color: aliceblue;
+  color:var(--color-background-blue)
+}

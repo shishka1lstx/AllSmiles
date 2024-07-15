@@ -349,7 +349,7 @@ body{
   color: var(--color-text-blue);
   cursor: pointer;
   position: absolute;
-  top: 250px;
+  top: calc(50% - 50px);
   width: 55px;
   height: 55px;
   left: 23px;
@@ -370,7 +370,7 @@ body{
   color: var(--color-text-blue);
   cursor: pointer;
   position: absolute;
-  top: 250px;
+  top: calc(50% - 50px);
   width: 55px;
   height: 55px;
   right: 23px;
@@ -425,7 +425,7 @@ body{
 .silder-contnent{
   position: absolute;
   display: grid;
-  top: 200px;
+  top: calc(40% - 50px);
   left: 307px;
   row-gap: 13px;
 }
@@ -649,6 +649,7 @@ body{
   row-gap: 75px;
   height: 265px;
   justify-content: center;
+  margin-bottom: 150px;
 }
 
 .elementor-part {
@@ -674,6 +675,87 @@ body{
   color: var(--color-text-blue);
   line-height: 25px;
 }
+
+
+
+.vblock{
+  width: 1400px;
+  height: 420px;
+
+  display: flex;
+  column-gap: 100px;
+
+  background-color: #EEF7FF;
+  align-items: center;
+  justify-content: center;
+  margin-inline: auto;
+  margin-bottom: 150px;
+}
+
+.text{
+  width: 532px;
+  
+}
+
+.vblock__video{
+  max-width: 1000px;
+  height: 100%;
+}
+
+.vblock__info{
+  display: grid;
+  text-align: start;
+  align-items: center;
+  justify-content: center;
+  padding-right: 0;
+  max-width: 900px;
+  margin-left: 150px;
+  margin-top: 50px;
+}
+
+.vblock__info__name{
+  color: #F4572E;
+  text-transform: uppercase;
+  font-family: 'Open Sans';
+  letter-spacing: 1.69px;
+  font-weight: 600;
+  font-size: 13px;
+  margin-bottom: 3px;
+}
+
+.vblock__info__header{
+  font-family: 'Catamaran';
+  font-size: 42px;
+  color: var(--color-text-blue);
+  line-height: 47px;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+
+.vblock__info__text{
+  margin-bottom: 3px;
+  
+}
+
+.vblock__info__autor{
+  color: #F4572E;
+  font-size: 20px;
+  font-family: 'Catamaran';
+  line-height: 33.3px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

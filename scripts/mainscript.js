@@ -3,9 +3,10 @@ document.addEventListener('DOMContentLoaded', () =>{
     const block2 = document.querySelector('.green');
     const block3 = document.querySelector('.blue');
     const btn = document.querySelector('.btn');
-    btn.click();
-    console.log(btn);
+    
+  
     window.addEventListener('scroll', () => {
+        btn.click();
         let scrollTop = window.scrollY;
         if (scrollTop <= block.offsetHeight){
             block.style.transform = `translateY(${scrollTop * 0.3}px)`;
